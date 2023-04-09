@@ -12,7 +12,7 @@ serde = { version = "1.0.140", features = ["derive"] }
 wasm-bindgen = { version = "0.2.82", features = ["serde-serialize"] }
 wasm-bindgen-futures = "0.4.32"
 web-sys = "0.3.59"
-yew = "0.19"
+yew = "0.20"
 
 [profile.release]
 # less code to include into binary
