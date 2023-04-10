@@ -1,8 +1,9 @@
 use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
-use wasm_bindgen::prelude::*;
+use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
 use wasm_bindgen_futures::spawn_local;
-use yew::prelude::*;
+use yew::prelude::Html;
+use yew::{function_component, html, use_state, use_node_ref, use_effect_with_deps, Callback};
 
 #[wasm_bindgen]
 extern "C" {
@@ -20,7 +21,7 @@ struct GreetArgs<'a> {
 
 #[function_component(App)]
 pub fn app() -> Html {
-    let greet_input_ref = use_ref(NodeRef::default);
+    let greet_input_ref = use_node_ref();
 
     let name = use_state(String::new);
 
@@ -84,7 +85,7 @@ pub fn app() -> Html {
             </p>
 
             <div class="row">
-                <input id="greet-input" ref={&*greet_input_ref} placeholder="Enter a name..." />
+                <input id="greet-input" ref={greet_input_ref} placeholder="Enter a name..." />
                 <button type="button" onclick={greet}>{"Greet"}</button>
             </div>
 
