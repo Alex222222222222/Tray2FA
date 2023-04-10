@@ -13,6 +13,10 @@ wasm-bindgen = { version = "0.2.82", features = ["serde-serialize"] }
 wasm-bindgen-futures = "0.4.32"
 web-sys = "0.3.59"
 yew = { version = "0.20", features = ["csr"] }
+rust-i18n = "1"
+yewdux = "0.9"
+yew-router = "0.17"
+yew_icons = { version = "0.7", features = [] }
 
 [profile.release]
 # less code to include into binary

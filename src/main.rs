@@ -1,7 +1,9 @@
-mod app;
+use route::Main;
 
-use app::App;
+mod app;
+mod route;
+mod invoke;
 
 fn main() {
-    yew::Renderer::<App>::new().render();
+    yew::Renderer::<Main>::new().render();
 }

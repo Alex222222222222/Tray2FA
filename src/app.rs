@@ -3,7 +3,7 @@ use serde_wasm_bindgen::to_value;
 use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
 use wasm_bindgen_futures::spawn_local;
 use yew::prelude::Html;
-use yew::{function_component, html, use_state, use_node_ref, use_effect_with_deps, Callback};
+use yew::{function_component, html, use_effect_with_deps, use_node_ref, use_state, Callback};
 
 #[wasm_bindgen]
 extern "C" {
@@ -19,7 +19,7 @@ struct GreetArgs<'a> {
     name: &'a str,
 }
 
-#[function_component(App)]
+#[function_component(Home)]
 pub fn app() -> Html {
     let greet_input_ref = use_node_ref();
 
