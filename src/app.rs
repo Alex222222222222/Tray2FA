@@ -20,11 +20,11 @@ struct GreetArgs<'a> {
 
 #[function_component(App)]
 pub fn app() -> Html {
-    let greet_input_ref = use_ref(|| NodeRef::default());
+    let greet_input_ref = use_ref(NodeRef::default);
 
-    let name = use_state(|| String::new());
+    let name = use_state(String::new);
 
-    let greet_msg = use_state(|| String::new());
+    let greet_msg = use_state(String::new);
     {
         let greet_msg = greet_msg.clone();
         let name = name.clone();
@@ -37,11 +37,8 @@ pub fn app() -> Html {
                     }
 
                     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-                    let new_msg = invoke(
-                        "greet",
-                        to_value(&GreetArgs { name: &*name }).unwrap(),
-                    )
-                    .await;
+                    let new_msg =
+                        invoke("greet", to_value(&GreetArgs { name: &name }).unwrap()).await;
                     log(&new_msg.as_string().unwrap());
                     greet_msg.set(new_msg.as_string().unwrap());
                 });
@@ -53,10 +50,14 @@ pub fn app() -> Html {
     }
 
     let greet = {
-        let name = name.clone();
         let greet_input_ref = greet_input_ref.clone();
         Callback::from(move |_| {
-            name.set(greet_input_ref.cast::<web_sys::HtmlInputElement>().unwrap().value());
+            name.set(
+                greet_input_ref
+                    .cast::<web_sys::HtmlInputElement>()
+                    .unwrap()
+                    .value(),
+            );
         })
     };
 
