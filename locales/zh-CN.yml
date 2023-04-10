@@ -1,0 +1,9 @@
+hello: 你好世界
+
+log_level:
+  trace: 所有
+  debug: 调试
+  warn: 报警
+  info: 信息
+  off: 关闭
+  error: 错误

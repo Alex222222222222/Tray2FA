@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use crate::app::Home;
+use crate::{app::Home, i18n::LanguagesConfigState};
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
@@ -41,9 +41,8 @@ pub fn app() -> Html {
     // class_list.remove_1("dark").unwrap();
     // }
 
-    // TODO fix language
-    // let (language_config, _) = yewdux::prelude::use_store::<LanguagesConfigState>();
-    // rust_i18n::set_locale(&language_config.config);
+    let (language_config, _) = yewdux::prelude::use_store::<LanguagesConfigState>();
+    rust_i18n::set_locale(&language_config.config.get_language());
 
     html! {
         <div

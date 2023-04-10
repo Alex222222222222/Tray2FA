@@ -40,7 +40,7 @@ pub fn app() -> Html {
                     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
                     let new_msg =
                         invoke("greet", to_value(&GreetArgs { name: &name }).unwrap()).await;
-                    log(&new_msg.as_string().unwrap());
+                    // log(&new_msg.as_string().unwrap());
                     greet_msg.set(new_msg.as_string().unwrap());
                 });
 
@@ -82,6 +82,10 @@ pub fn app() -> Html {
                 <a href="https://github.com/tauri-apps/tauri-vscode" target="_blank">{"Tauri"}</a>
                 {" + "}
                 <a href="https://github.com/rust-lang/rust-analyzer" target="_blank">{"rust-analyzer"}</a>
+            </p>
+
+            <p>
+                {t!("hello")}
             </p>
 
             <div class="row">

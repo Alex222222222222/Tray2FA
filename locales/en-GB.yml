@@ -1,0 +1,9 @@
+hello: Hello world
+
+log_level:
+  trace: Trace
+  debug: Debug
+  warn: Warn
+  info: Info
+  off: Off
+  error: Error
